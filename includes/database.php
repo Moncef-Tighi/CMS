@@ -3,7 +3,7 @@
 function connexion($db=null) {
     if ($db ===null) {
         $host = 'localhost';
-        $dbname = 'CMS';
+        $dbname = 'cms';
         $username = 'root';
         $password = '';
 

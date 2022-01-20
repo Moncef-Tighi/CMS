@@ -1,5 +1,7 @@
 <?php 
+require("./includes/database.php");
 include("./includes/header.php");
+
 ?>
 
 <body>
@@ -19,32 +21,45 @@ include("./includes/header.php");
             <div class="col-md-8">
 
                 <h1 class="page-header">
-                    Page Heading
-                    <small>Secondary Text</small>
+                    Accueil
+                    <small>liste des posts</small>
                 </h1>
 
                 <!-- Les blog posts -->
+                <?php
+                    $db=connexion($db);
+                    $query="SELECT * FROM posts";
+                    $requete=$db->prepare($query);
+                    $requete->execute();
+                    $data = $requete->fetchAll(); 
+                    foreach($data as $row) {
+                        $titre=$row["titre"];
+                        $auteur=$row["auteur"];
+                        $date=$row["date_post"];
+                        $image=$row["image"];
+                        $description=$row["description"];
+                        ?>
+
                 <h2>
-                    <a href="#">Blog Post Title</a>
+                    <a href="#"><?php echo $titre;?></a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
+                    Par <a href="index.php"><?php echo $auteur; ?></a>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
-                <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
+                <p><span class="glyphicon glyphicon-time"></span> Posté le : <?php echo $date; ?></p>
+                <img class="img-responsive" src="/images<?php echo $image; ?>" alt="">
+                <p><?php echo $description; ?></p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
 
+                <?php } //Fin de la loop d'affichage ?>
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="previous">
-                        <a href="#">&larr; Older</a>
+                        <a href="#">&larr; Précédent</a>
                     </li>
                     <li class="next">
-                        <a href="#">Newer &rarr;</a>
+                        <a href="#">Suivant &rarr;</a>
                     </li>
                 </ul>
 
