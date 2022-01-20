@@ -6,6 +6,27 @@
         extract($data);
 
     }
+
+    if (isset($_POST['titre'])) {
+
+        $query="UPDATE posts SET
+            categorie_id =  :categorie , titre = :titre , 
+            auteur = :auteur , description = :description ,
+            tags = :tags ,status = :status,
+            WHERE post_id= :id ";
+
+        extract($_POST);
+        simpleQuery($query, [
+            ":categorie"=>$categorie,
+            ":titre"=>$titre,
+            ":auteur"=>$auteur,
+            ":description"=>$description,
+            ":tags"=>$tags,
+            ":status"=>$status,
+            ":id" => $_GET["id"],
+        ]);
+    }
+
     ?>
 
     <div class="form-group">
@@ -13,8 +34,19 @@
         <input type="text" class="form-control" name="titre" value="<?php echo $titre ?>">
     </div>
     <div class="form-group">
-        <label for="categorie">id catégorie</label>
-        <input type="text" class="form-control" name="categorie" value="<?php echo $categorie_id ?>">
+        <label for="categorie">Categorie</label>
+        <br>
+        <select name="categorie" id="">
+            <?php
+                $query="SELECT * FROM categorie";
+                $data=fetchAll($query);
+                foreach($data as $row) {
+                    $id=$row["categorie_id"];
+                    $titre=$row["categorie_titre"];
+            ?>
+            <option value="<?php echo $id ?>"><?php echo $titre?></option>
+            <?php }?>
+        </select>
     </div>
 
     <div class="form-group">
@@ -34,11 +66,6 @@
     <div class="form-group">
         <label for="description">description</label>
         <textarea type="text" class="form-control" name="description" cols="40" rows="8"><?php echo $description ?></textarea>
-    </div>
-
-    <div class="form-group">
-        <label for="image">image</label>
-        <input type="file" name="image">
     </div>
 
     <button type="submit" class="btn btn-primary" name="add">Envoyer</button>
