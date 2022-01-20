@@ -16,3 +16,9 @@ aside {
 aside .well {
     margin-top: 20px;
 }
+
+.input-group-btn {
+    position: absolute!important;
+    z-index: 2;
+    left: 100%;
+}

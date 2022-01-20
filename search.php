@@ -30,8 +30,8 @@ include("./includes/header.php");
     <?php
     if ( isset($_POST["recherche"]) ) {
         $query="SELECT * FROM posts WHERE tags LIKE CONCAT('%', :recherche, '%') ";
-
         $data=fetchAll($query, [":recherche"=> $_POST["recherche"] ] );
+        
         if (!$data) {
             echo "Aucun résultat ne corresponds à cette recherche";
         } else {                 

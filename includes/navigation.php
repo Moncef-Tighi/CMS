@@ -14,13 +14,12 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav">
+                    <li><a href="/admin/" style="color:#337ab7;" >Admin</a></li>
                 <?php
                     $db=connexion();
-                    $query="SELECT * FROM categorie";
-                    $requete=$db->prepare($query);
-                    $requete->execute();
-                    $data = $requete->fetchAll(); 
-                    foreach($data as $row) {
+                    $query = "SELECT * FROM categorie";
+                    $data= fetchAll($query);
+                foreach($data as $row) {
                         $title=$row["categorie_titre"];
                         echo("<li><a href='#'>$title</a></li>");
                     }
