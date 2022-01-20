@@ -27,16 +27,21 @@ include("./includes/header.php");
                 </h1>
 
                 <!-- Les blog posts -->
-                <?php
-                    $query="SELECT * FROM posts";
-                    $data = fetchAll($query); 
-                    foreach($data as $row) {
-                        $titre=$row["titre"];
-                        $auteur=$row["auteur"];
-                        $date=$row["date_post"];
-                        $image=$row["image"];
-                        $description=$row["description"];
-                        ?>
+    <?php
+    if ( isset($_POST["recherche"]) ) {
+        $query="SELECT * FROM posts WHERE tags LIKE CONCAT('%', :recherche, '%') ";
+
+        $data=fetchAll($query, [":recherche"=> $_POST["recherche"] ] );
+        if (!$data) {
+            echo "Aucun résultat ne corresponds à cette recherche";
+        } else {                 
+            foreach($data as $row) {
+                $titre=$row["titre"];
+                $auteur=$row["auteur"];
+                $date=$row["date_post"];
+                $image=$row["image"];
+                $description=$row["description"];
+                ?>
 
                 <h2>
                     <a href="#"><?php echo $titre;?></a>
@@ -50,7 +55,7 @@ include("./includes/header.php");
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
 
-                <?php } //Fin de la loop d'affichage ?>
+    <?php }  } }    //Fin de la loop, l'if et l'else ?>
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="previous">
