@@ -2,7 +2,11 @@
 <html lang="fr">
 
 <head>
-
+    <?php
+        ob_start();
+        require("../includes/database.php");
+        include("../includes/querry.php");        
+    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CSM - Page administrateur</title>

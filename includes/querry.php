@@ -9,5 +9,13 @@ function fetchAll($query, $params=null) {
         }
     }
     $requete->execute();
+    
     return $requete->fetchAll(); 
+}
+
+function simpleQuery($query, $params) {
+    $db=connexion();
+    $requete=$db->prepare($query);
+    $requete->execute($params);
+
 }

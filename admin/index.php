@@ -1,8 +1,6 @@
 
 <?php
     include("./includes/header.php");
-    require("../includes/database.php");
-    include("../includes/querry.php");
 ?>
 
 <body>
