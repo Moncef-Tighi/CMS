@@ -28,12 +28,12 @@ include("./includes/header.php");
 
                 <!-- Les blog posts -->
                 <?php
-                    $query="SELECT * FROM posts";
-                    $data = fetchAll($query); 
-                    foreach($data as $row) {
-                         extract($row);
-                        ?>
-
+                    if(isset($_GET["id"])) {
+                        $query="SELECT * FROM posts WHERE categorie_id= :id";
+                        $data = fetchAll($query, [":id" => $_GET["id"] ]); 
+                        foreach($data as $row) {
+                             extract($row);
+                            ?>    
                 <h2>
                     <a href="post.php?id=<?php echo $post_id?>"><?php echo $titre;?></a>
                 </h2>
@@ -46,7 +46,7 @@ include("./includes/header.php");
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
 
-                <?php } //Fin de la loop d'affichage ?>
+                <?php }} //Fin de la loop d'affichage ?>
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="previous">

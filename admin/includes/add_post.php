@@ -35,8 +35,19 @@
         <input type="text" class="form-control" name="titre">
     </div>
     <div class="form-group">
-        <label for="categorie">id catégorie</label>
-        <input type="text" class="form-control" name="categorie">
+        <label for="categorie">Categorie</label>
+        <br>
+        <select name="categorie" id="">
+            <?php
+                $query="SELECT * FROM categorie";
+                $data=fetchAll($query);
+                foreach($data as $row) {
+                    $id=$row["categorie_id"];
+                    $titre=$row["categorie_titre"];
+            ?>
+            <option value="<?php echo $id ?>"> <?php echo $titre?></option>
+            <?php }?>
+        </select>
     </div>
 
     <div class="form-group">

@@ -25,9 +25,10 @@
                         $query = "SELECT * FROM categorie LIMIT 5";
                         $data= fetchAll($query);
                         foreach($data as $row) {
+                            $id=$row["categorie_id"];
                             $titre=$row["categorie_titre"];
                     ?>
-                    <li><a href="#"><?php echo $titre; ?></a></li>
+                    <li><a href="category.php?id=<?php echo $id ?>"><?php echo $titre; ?></a></li>
                     <?php } ?>
                 </ul>
             </div>
