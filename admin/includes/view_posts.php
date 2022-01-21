@@ -25,7 +25,11 @@
             <td><?php echo $post_id ?></td>
             <td><?php echo $auteur ?></td>
             <td><?php echo $titre ?></td>
-            <td><?php echo $categorie_id ?></td>
+            <?php 
+                $query="SELECT categorie_titre FROM categorie WHERE categorie_id = :categorie_id";
+                $titre=fetchOne($query, [':categorie_id'=> $categorie_id]);
+            ?>
+            <td><?php echo $titre["categorie_titre"] ?></td>
             <td><?php echo $status; ?></td>
             <td><?php echo $image;?></td>
             <td><?php echo $tags; ?></td>

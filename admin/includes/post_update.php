@@ -8,11 +8,10 @@
     }
 
     if (isset($_POST['titre'])) {
-
         $query="UPDATE posts SET
             categorie_id =  :categorie , titre = :titre , 
             auteur = :auteur , description = :description ,
-            tags = :tags ,status = :status,
+            tags = :tags ,status = :status
             WHERE post_id= :id ";
 
         extract($_POST);
@@ -44,7 +43,7 @@
                     $id=$row["categorie_id"];
                     $titre=$row["categorie_titre"];
             ?>
-            <option value="<?php echo $id ?>"><?php echo $titre?></option>
+            <option value="<?php echo $id ?>" <?php if ($id===$categorie_id) echo "selected"?>><?php echo $titre?></option>
             <?php }?>
         </select>
     </div>
