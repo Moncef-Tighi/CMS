@@ -94,6 +94,16 @@ include("./includes/header.php");
                 }?>
                 <!-- Posted Comments -->
 
+                <?php 
+                    $query="SELECT * FROM commentaire 
+                    WHERE status!= 'invalidé' AND post_id = :id 
+                    ORDER BY date";
+                    $data= fetchAll($query, [":id"=> $_GET["id"] ]);
+                    foreach($data as $row) {
+                        extract($row);
+                ?>
+
+
                 
 
                 <!-- Comment -->
@@ -102,13 +112,13 @@ include("./includes/header.php");
                         <img class="media-object" src="http://placehold.it/64x64" alt="">
                     </a>
                     <div class="media-body">
-                        <h4 class="media-heading">Start Bootstrap
-                            <small>August 25, 2014 at 9:30 PM</small>
+                        <h4 class="media-heading"><?php echo $auteur ?>
+                            <small><?php echo $date ?></small>
                         </h4>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                        <?php echo $contenu ?>
                     </div>
                 </div>
-
+                        <?php } ?>
                 <!-- Comment -->
                 <div class="media">
                     <a class="pull-left" href="#">

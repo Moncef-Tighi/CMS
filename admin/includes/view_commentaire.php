@@ -33,8 +33,8 @@
             <td><a href="/post.php?id=<?php echo $post_id ?>"><?php echo  substr($titre["titre"], 0, 200); ?></a></td>
             <td><?php echo $date; ?></td>
             <td><?php echo $contenu;?></td>
-            <td><a>Valider</a></td>
-            <td><a>Invalider</a></td>
+            <td><a href="commentaires.php?valider=<?php echo $commentaire_id; ?>">Valider</a></td>
+            <td><a href="commentaires.php?invalider=<?php echo $commentaire_id; ?>">Invalider</a></td>
             <td>
                 <a href='commentaires.php?delete=<?php echo $commentaire_id; ?>'>
                 <img class='btn-actions' src='../images/supprimer.svg' alt='Supprimer'></a>
