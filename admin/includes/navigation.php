@@ -66,7 +66,7 @@
 
 
         <li>
-            <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> commentaires</a>
+            <a href="commentaires.php"><i class="fa fa-fw fa-file"></i> commentaires</a>
         </li>
         <li>
             <a href="javascript:;" data-toggle="collapse" data-target="#user_dropdown"><i class="fa fa-fw fa-arrows-v"></i> utilisateurs <i class="fa fa-fw fa-caret-down"></i></a>

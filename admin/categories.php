@@ -95,7 +95,7 @@
 
                     <?php
                         if(isset($_GET["edit"])) {
-                            include("./includes/categorie_update.php");
+                            include("./includes/update_categorie.php");
                         }
                     ?>
 

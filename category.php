@@ -42,7 +42,7 @@ include("./includes/header.php");
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posté le : <?php echo $date_post; ?></p>
                 <img class="img-responsive" src="/images<?php echo $image; ?>" alt="">
-                <p><?php echo $description; ?></p>
+                <p><?php echo substr($description, 0, 250); ?></p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
 

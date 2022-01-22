@@ -39,13 +39,13 @@
                     }
                     switch($source) {
                         case 'add';
-                            include("./includes/add_post.php");
+                            include("./includes/add_commentaire.php");
                             break;
                         case 'update';
-                            include("./includes/update_post.php");
+                            include("./includes/update_commentaire.php");
                             break;
                         default : 
-                            include("./includes/view_posts.php");
+                            include("./includes/view_commentaire.php");
                             break;
                     }
                 ?>
