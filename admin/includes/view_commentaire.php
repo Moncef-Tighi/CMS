@@ -30,7 +30,7 @@
                 $query="SELECT titre FROM posts WHERE post_id = :post_id";
                 $titre=fetchOne($query, [':post_id'=> $post_id]);
             ?>
-            <td><?php echo  substr($titre["titre"], 0, 200); ?></td>
+            <td><a href="/post.php?id=<?php echo $post_id ?>"><?php echo  substr($titre["titre"], 0, 200); ?></a></td>
             <td><?php echo $date; ?></td>
             <td><?php echo $contenu;?></td>
             <td><a>Valider</a></td>

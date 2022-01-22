@@ -44,13 +44,57 @@ include("./includes/header.php");
                 <p><span class="glyphicon glyphicon-time"></span> Posté le : <?php echo $date_post; ?></p>
                 <img class="img-responsive" src="/images<?php echo $image; ?>" alt="">
                 <p><?php echo $description; ?></p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
+
+                <?php 
+                    if(isset($_POST["contenu"])) {
+                        $query="INSERT INTO commentaire(post_id,auteur,email,contenu,date) 
+                        VALUES (:id, :auteur, :email, :contenu, :date)";
+                        $date=date("Y-m-d");
+                        extract($_POST);
+                        if (empty($auteur) || empty($contenu)) {
+                            echo("Erreur, le commentaire est invalide.");
+                        } else {
+                            simpleQuery($query, 
+                            [":id"=> $_GET["id"], ":auteur" => $auteur,
+                            ":email" => $email,":contenu" => $contenu, ":date" => $date ] );
+                            echo("Votre commentaire a bien été ajouté");    
+                        }
+                    }
+                ?>
+                <br>
+                        <!-- Comments Form -->
+                <div class="well">
+
+
+
+                <h4>Laisser un commentaire:</h4>
+                <form action="" method="post" role="form">
+
+                    <div class="form-group">
+                        <label for="Author">Auteur</label>
+                        <input type="text" name="auteur" class="form-control" name="auteur">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Author">Email</label>
+                        <input type="email" name="email" class="form-control" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="comment">Votre commentaire</label>
+                        <textarea name="contenu" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="submit" name="create_comment" class="btn btn-primary">Confirmer</button>
+                </form>
+                </div>
 
                 <?php }} else {
                     header("Location: ./");
                 }?>
                 <!-- Posted Comments -->
+
+                
 
                 <!-- Comment -->
                 <div class="media">

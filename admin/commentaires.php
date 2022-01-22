@@ -4,7 +4,7 @@
 
 
     if (isset($_GET["delete"])) {
-        $query="DELETE FROM posts WHERE post_id = :id";
+        $query="DELETE FROM commentaire WHERE commentaire_id = :id";
         simpleQuery($query,[":id" => $_GET["delete"] ]);
     }
 
