@@ -10,6 +10,8 @@
             <th>Tags</th>
             <th>Date</th>
             <th>Commentaires</th>
+            <th>Valider</th>
+            <th>Invalider</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -35,6 +37,8 @@
             <td><?php echo $tags; ?></td>
             <td><?php echo $date_post ?></td>
             <td><?php echo $nombre_commentaire; ?></td>
+            <td><a href="post.php?valider=<?php echo $post_id; ?>">Valider</a></td>
+            <td><a href="post.php?invalider=<?php echo $post_id; ?>">Invalider</a></td>
             <td><a href='post.php?source=update&id=<?php echo $post_id; ?>'>
                 <img class='btn-actions' src='../images/editer.svg' alt='Editer'></a>
                 <a href='post.php?delete=<?php echo $post_id; ?>'>

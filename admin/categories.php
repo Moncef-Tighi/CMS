@@ -17,6 +17,7 @@
     if (isset($_GET["delete"])) {
         $query="DELETE FROM categorie WHERE categorie_id = :id";
         simpleQuery($query,[":id" => $_GET["delete"] ]);
+        header("Location: post.php");
     }
     if (isset($_POST["edit"])) {
         $query="UPDATE categorie SET categorie_titre = :titre WHERE categorie_id = :id";

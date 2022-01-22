@@ -59,6 +59,10 @@ include("./includes/header.php");
                             [":id"=> $_GET["id"], ":auteur" => $auteur,
                             ":email" => $email,":contenu" => $contenu, ":date" => $date ] );
                             echo("Votre commentaire a bien été ajouté");    
+                            $query="UPDATE posts SET nombre_commentaire = nombre_commentaire + 1 
+                                    WHERE post_id = :id";
+                            simpleQuery($query, [":id"=> $_GET["id"]]);
+                            
                         }
                     }
                 ?>
@@ -101,6 +105,7 @@ include("./includes/header.php");
                     $data= fetchAll($query, [":id"=> $_GET["id"] ]);
                     foreach($data as $row) {
                         extract($row);
+
                 ?>
 
 

@@ -6,6 +6,7 @@
     if (isset($_GET["delete"])) {
         $query="DELETE FROM commentaire WHERE commentaire_id = :id";
         simpleQuery($query,[":id" => $_GET["delete"] ]);
+        header("Location: commentaires.php");
     }
     if (isset($_GET["valider"])) {
         $query="UPDATE commentaire SET status = 'validé' WHERE commentaire_id = :id";

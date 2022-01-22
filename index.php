@@ -28,7 +28,7 @@ include("./includes/header.php");
 
                 <!-- Les blog posts -->
                 <?php
-                    $query="SELECT * FROM posts";
+                    $query="SELECT * FROM posts WHERE status!='invalide'";
                     $data = fetchAll($query); 
                     foreach($data as $row) {
                          extract($row);

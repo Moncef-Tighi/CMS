@@ -6,7 +6,19 @@
     if (isset($_GET["delete"])) {
         $query="DELETE FROM posts WHERE post_id = :id";
         simpleQuery($query,[":id" => $_GET["delete"] ]);
+        header("Location: post.php");
     }
+    if (isset($_GET["valider"])) {
+        $query="UPDATE posts SET status = 'validé' WHERE post_id = :id";
+        simpleQuery($query,[":id" => $_GET["valider"] ]);
+    }
+
+    if (isset($_GET["invalider"])) {
+        $query="UPDATE posts SET status = 'invalidé' WHERE post_id = :id";
+        simpleQuery($query,[":id" => $_GET["invalider"] ]);
+    }
+
+
 
 ?>
 
