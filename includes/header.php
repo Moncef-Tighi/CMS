@@ -15,5 +15,6 @@
 
     <link href="css/blog-home.css" rel="stylesheet">
 
+    <?php session_start(); ?>
 </head>
 

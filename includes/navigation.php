@@ -23,8 +23,17 @@
                         $title=$row["categorie_titre"];
                         echo("<li><a href='#'>$title</a></li>");
                     }
-                ?>    
-                </ul>
+                    if (isset($_SESSION["pseudo"])) {
+                ?>
+                    <li>
+                        <a href="includes/logout.php" id="deco">Déconnexion</a>
+                    </li>
+                <?php }?>
+    
+                ?>   
+                
+            </ul> 
+
             </div>
             <!-- /.navbar-collapse -->
         </div>

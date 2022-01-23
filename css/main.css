@@ -1,0 +1,14 @@
+#deco {
+    color: #337ab7;
+    float: right;
+    margin-top: 16px;
+}
+
+@media only screen and (max-width: 750px) {
+    #deco {
+        margin-top: 0px;
+        color: #337ab7!important;
+
+    }
+  }
+  

@@ -5,6 +5,10 @@
     <?php
         ob_start();
         session_start();
+        if (!$_SESSION["pseudo"] || $_SESSION["role"]!="admin") {
+            session_destroy();
+            header("Location: ../index.php");
+        }
         require("../includes/database.php");
         include("../includes/querry.php");        
     ?>
