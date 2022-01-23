@@ -8,23 +8,27 @@
     }
 
     if (isset($_POST['pseudo'])) {
-        $query="UPDATE user SET
+        if ($_POST["password"]!="") {
+            $query="UPDATE user SET
             pseudo =  :pseudo , nom = :nom , prenom= :prenom ,
             password = :password ,
             email = :email ,role = :role, salt=''
             WHERE user_id= :id ";
 
-        extract($_POST);
-        simpleQuery($query, [
-            ":pseudo"=>$pseudo,
-            ":nom"=>$nom,
-            ":prenom"=>$prenom,
-            ":password"=>$password,
-            ":email"=>$email,
-            ":role"=>$role,
-            ":id" =>$_GET["id"]
-        ]);
-    }
+            extract($_POST);
+            simpleQuery($query, [
+                ":pseudo"=>$pseudo,
+                ":nom"=>$nom,
+                ":prenom"=>$prenom,
+                ":password"=>$password,
+                ":email"=>$email,
+                ":role"=>$role,
+                ":id" =>$_GET["id"]
+            ]);
+        } else {
+            echo "<h2> Une erreur s'est produite, veuillez réessayer</h2>";
+        }
+    } 
 
     ?>
 
