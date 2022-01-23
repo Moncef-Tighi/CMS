@@ -69,13 +69,13 @@
             <a href="commentaires.php"><i class="fa fa-fw fa-file"></i> commentaires</a>
         </li>
         <li>
-            <a href="javascript:;" data-toggle="collapse" data-target="#user_dropdown"><i class="fa fa-fw fa-arrows-v"></i> utilisateurs <i class="fa fa-fw fa-caret-down"></i></a>
+            <a href="javascript:;" data-toggle="collapse" data-target="#user_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Utilisateurs <i class="fa fa-fw fa-caret-down"></i></a>
             <ul id="user_dropdown" class="collapse">
                 <li>
-                    <a href="#">Afficher un utilisateur</a>
+                    <a href="users.php">Afficher un utilisateur</a>
                 </li>
                 <li>
-                    <a href="#">Ajouter un utitlisateur</a>
+                    <a href="users.php?source=add">Ajouter un utitlisateur</a>
                 </li>
             </ul>
         </li>    
