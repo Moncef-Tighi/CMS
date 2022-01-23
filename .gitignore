@@ -1,3 +1,4 @@
 bootstrap*
-jquery.js
-/admin/js/plugins/
+*jquery*
+admin/js/plugins
+admin/font*
