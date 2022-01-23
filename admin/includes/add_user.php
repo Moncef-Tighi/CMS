@@ -1,26 +1,24 @@
 <?php
 
-    if( isset($_POST["titre"])) {
+    if( isset($_POST["pseudo"])) {
         extract($_POST);
         $image= $_FILES["image"]['name'];
         $image_temp= $_FILES["image"]['tmp_name'];
         move_uploaded_file($image_temp, "../images/$image");
-        $date=date('Y-m-d');
 
-        $query="INSERT INTO posts(
-            categorie_id,titre,auteur,date_post,image,description,tags,nombre_commentaire,status
+        $query="INSERT INTO user(
+            pseudo,nom,prenom,password,image,email,role,salt
         ) VALUES(
-            :categorie_id,:titre,:auteur,:date,:image,:description,:tags, 0 ,:status
+            :pseudo,:nom,:prenom,:password,:image,:email,:role,''
         )";
         simpleQuery($query, [
-            ":categorie_id"=>$categorie,
-            ":titre"=>$titre,
-            ":auteur"=>$auteur,
-            ":date"=>$date,
+            ":pseudo"=>$pseudo,
+            ":nom"=>$nom,
+            ":prenom"=>$prenom,
+            ":password"=>$password,
             ":image"=>$image,
-            ":description"=>$description,
-            ":tags"=>$tags,
-            ":status"=>$status,
+            ":email"=>$email,
+            ":role"=>$role,
         ]);
     }
 ?>
@@ -31,47 +29,36 @@
 <form action="" method="post" enctype="multipart/form-data">
 
     <div class="form-group">
-        <label for="titre">Titre du post</label>
-        <input type="text" class="form-control" name="titre">
-    </div>
-    <div class="form-group">
-        <label for="categorie">Categorie</label>
-        <br>
-        <select name="categorie" id="">
-            <?php
-                $query="SELECT * FROM categorie";
-                $data=fetchAll($query);
-                foreach($data as $row) {
-                    $id=$row["categorie_id"];
-                    $titre=$row["categorie_titre"];
-            ?>
-            <option value="<?php echo $id ?>"> <?php echo $titre?></option>
-            <?php }?>
-        </select>
+        <label for="titre">Pseudo</label>
+        <input type="text" class="form-control" name="pseudo">
     </div>
 
     <div class="form-group">
-        <label for="auteur">Auteur</label>
-        <input type="text" class="form-control" name="auteur">
+        <label for="auteur">Nom</label>
+        <input type="text" class="form-control" name="nom">
     </div>
 
 
     <div class="form-group">
-        <label for="status">Status</label>
-        <input type="text" class="form-control" name="status">
+        <label for="status">Prenom</label>
+        <input type="text" class="form-control" name="prenom">
     </div>
     <div class="form-group">
-        <label for="tags">tags</label>
-        <input type="text" class="form-control" name="tags">
+        <label for="tags">Mot de passe</label>
+        <input type="password" class="form-control" name="password">
     </div>
     <div class="form-group">
-        <label for="description">description</label>
-        <textarea type="text" class="form-control" name="description" cols="40" rows="8"></textarea>
+        <label for="description">email</label>
+        <input type="email" class="form-control" name="email">
     </div>
 
     <div class="form-group">
         <label for="image">image de profile</label>
         <input type="file" name="image">
+    </div>
+    <div class="form-group">
+        <label for="status">Rôle</label>
+        <input type="text" class="form-control" name="role">
     </div>
 
     <button type="submit" class="btn btn-primary" name="add">Envoyer</button>
