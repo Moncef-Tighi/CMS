@@ -25,7 +25,7 @@
             <td><?php echo $prenom ?></td>
             <td><?php echo $email; ?></td>
             <td><?php echo $role;?></td>
-            <td> <a href='users.php?edit=<?php echo $user_id; ?>'>
+            <td> <a href='users.php?source=update&id=<?php echo $user_id; ?>'>
                     <img class='btn-actions' src='../images/editer.svg' alt='Editer'></a>
                 <a href='users.php?delete=<?php echo $user_id; ?>'>
                     <img class='btn-actions' src='../images/supprimer.svg' alt='Supprimer'></a>

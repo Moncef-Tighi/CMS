@@ -1,72 +1,66 @@
 <form action="" method="post" enctype="multipart/form-data">
     <?php
     if (isset($_GET["id"])) {
-        $query="SELECT * FROM posts WHERE post_id= :id ";
+        $query="SELECT * FROM user WHERE user_id= :id ";
         $data=fetchOne($query, [':id'=> $_GET['id']]);
         extract($data);
 
     }
 
-    if (isset($_POST['titre'])) {
-        $query="UPDATE posts SET
-            categorie_id =  :categorie , titre = :titre , 
-            auteur = :auteur , description = :description ,
-            tags = :tags ,status = :status
-            WHERE post_id= :id ";
+    if (isset($_POST['pseudo'])) {
+        $query="UPDATE user SET
+            pseudo =  :pseudo , nom = :nom , prenom= :prenom ,
+            password = :password ,
+            email = :email ,role = :role, salt=''
+            WHERE user_id= :id ";
 
         extract($_POST);
         simpleQuery($query, [
-            ":categorie"=>$categorie,
-            ":titre"=>$titre,
-            ":auteur"=>$auteur,
-            ":description"=>$description,
-            ":tags"=>$tags,
-            ":status"=>$status,
-            ":id" => $_GET["id"],
+            ":pseudo"=>$pseudo,
+            ":nom"=>$nom,
+            ":prenom"=>$prenom,
+            ":password"=>$password,
+            ":email"=>$email,
+            ":role"=>$role,
+            ":id" =>$_GET["id"]
         ]);
     }
 
     ?>
 
+<form action="" method="post" enctype="multipart/form-data">
+
     <div class="form-group">
-        <label for="titre">Titre du post</label>
-        <input type="text" class="form-control" name="titre" value="<?php echo $titre ?>">
-    </div>
-    <div class="form-group">
-        <label for="categorie">Categorie</label>
-        <br>
-        <select name="categorie" id="">
-            <?php
-                $query="SELECT * FROM categorie";
-                $data=fetchAll($query);
-                foreach($data as $row) {
-                    $id=$row["categorie_id"];
-                    $titre=$row["categorie_titre"];
-            ?>
-            <option value="<?php echo $id ?>" <?php if ($id===$categorie_id) echo "selected"?>><?php echo $titre?></option>
-            <?php }?>
-        </select>
+        <label for="titre">Pseudo</label>
+        <input type="text" class="form-control" name="pseudo" value="<?php echo $pseudo ?>">
     </div>
 
     <div class="form-group">
-        <label for="auteur">Auteur</label>
-        <input type="text" class="form-control" name="auteur" value="<?php echo $auteur ?>">
+        <label for="auteur">Nom</label>
+        <input type="text" class="form-control" name="nom"  value="<?php echo $nom ?>">
     </div>
 
 
     <div class="form-group">
-        <label for="status">Status</label>
-        <input type="text" class="form-control" name="status" value="<?php echo $status ?>">
+        <label for="status">Prenom</label>
+        <input type="text" class="form-control" name="prenom"  value="<?php echo $prenom ?>">
     </div>
     <div class="form-group">
-        <label for="tags">tags</label>
-        <input type="text" class="form-control" name="tags" value="<?php echo $tags ?>">
+        <label for="tags">Mot de passe</label>
+        <input type="password" class="form-control" name="password" >
     </div>
     <div class="form-group">
-        <label for="description">description</label>
-        <textarea type="text" class="form-control" name="description" cols="40" rows="8"><?php echo $description ?></textarea>
+        <label for="description">email</label>
+        <input type="email" class="form-control" name="email"  value="<?php echo $email ?>">
     </div>
 
+    <select name="role">
+        <option value="admin" <?php if ($role==="admin") echo "selected"?> >Admin</option>
+        <option value="membre" <?php if ($role==="membre") echo "selected"?>>Membre</option>
+    </select>
+
+    <br><br>
+    
     <button type="submit" class="btn btn-primary" name="add">Envoyer</button>
 
 </form>

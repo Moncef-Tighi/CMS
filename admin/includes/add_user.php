@@ -56,10 +56,11 @@
         <label for="image">image de profile</label>
         <input type="file" name="image">
     </div>
-    <div class="form-group">
-        <label for="status">Rôle</label>
-        <input type="text" class="form-control" name="role">
-    </div>
+
+    <select name="role">
+        <option value="admin">Admin</option>
+        <option value="membre">Membre</option>
+    </select>
 
     <button type="submit" class="btn btn-primary" name="add">Envoyer</button>
 
