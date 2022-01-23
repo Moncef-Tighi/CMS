@@ -20,6 +20,7 @@
             ":email"=>$email,
             ":role"=>$role,
         ]);
+        echo "<h2 style='color:green;'>L'utilisateur a bien été créé</h2>";
     }
 ?>
 

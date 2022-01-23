@@ -22,6 +22,7 @@
             ":tags"=>$tags,
             ":status"=>$status,
         ]);
+        echo "<h2 style='color:green;'>Le nouveau post a bien été créé</h2>";
     }
 ?>
 
