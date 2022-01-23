@@ -43,8 +43,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Bienvenue Admin
-                            <small>Catégorie</small>
+                            Gestion des catégories
                         </h1>
 
                     </div>

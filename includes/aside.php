@@ -1,6 +1,27 @@
 <aside class="col-md-4">
 
-    <!-- Recherche -->
+    <div class="well">
+        <h4>Connexion : </h4>
+        <div class="input-group">
+            <form action="includes/login.php" method="post">
+                <div class="form-group">
+                    <label for="pseudo">Pseudo : </label>
+                    <input type="text" name="pseudo" class="form-control" id="pseudo" placeholder="Veuillez entrer votre pseudo">                    
+                </div>
+                <div class="input-group">
+                    <label for="password">Password : </label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Veuillez entrer votre mot de passe">
+                </div>
+                <div class="input-group">
+                    <br>
+                    <button type="submit" class="btn btn-primary" name="login">Envoyer</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <!--Recherche form -->
     <div class="well">
         <h4>Blog Search</h4>
         <div class="input-group">
@@ -15,6 +36,8 @@
 
         </div>
     </div>
+
+    
 
     <div class="well">
         <h4>Blog Categories</h4>

@@ -4,6 +4,7 @@
 <head>
     <?php
         ob_start();
+        session_start();
         require("../includes/database.php");
         include("../includes/querry.php");        
     ?>
