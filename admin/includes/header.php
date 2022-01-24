@@ -5,8 +5,8 @@
     <?php
         ob_start();
         session_start();
+
         if (!$_SESSION["pseudo"] || $_SESSION["role"]!="admin") {
-            session_destroy();
             header("Location: ../connexion.php");
         }
         require("../includes/database.php");

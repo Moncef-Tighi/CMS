@@ -14,8 +14,10 @@
             password = :password ,
             email = :email ,role = :role, salt=''
             WHERE user_id= :id ";
-
+            
             extract($_POST);
+            $password=crypt($password,$pseudo);
+
             simpleQuery($query, [
                 ":pseudo"=>$pseudo,
                 ":nom"=>$nom,

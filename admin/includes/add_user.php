@@ -5,6 +5,7 @@
         $image= $_FILES["image"]['name'];
         $image_temp= $_FILES["image"]['tmp_name'];
         move_uploaded_file($image_temp, "../images/$image");
+        $password=crypt($password,$pseudo);
 
         $query="INSERT INTO user(
             pseudo,nom,prenom,password,image,email,role,salt
