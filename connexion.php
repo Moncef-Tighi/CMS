@@ -18,14 +18,10 @@
                 <div class="form-wrap">
 
                 <h1>Se connecter</h1><br>
-                    <form role="form" action="./includes/login.php" method="post" id="login-form" autocomplete="off">
+                    <form role="form" action="./includes/login.php" method="post" id="login" autocomplete="off">
                         <div class="form-group">
                             <label for="pseudo">Pseudo</label>
                             <input type="text" name="pseudo" id="pseudo" class="form-control" placeholder="Entrez un pseudo">
-                        </div>
-                         <div class="form-group">
-                            <label for="email" >Email</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="test@exemple.com">
                         </div>
                          <div class="form-group">
                             <label for="password" >Password</label>

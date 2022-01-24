@@ -13,8 +13,8 @@
                 <?php } else {
                     ?>
                     
-                        <a href="includes/logout.php" id="deco">Se connecter</a>
-                        <a href="includes/logout.php" id="deco">S'inscrire</a>
+                        <a href="connexion.php">Se connecter</a>
+                        <a href="inscription.php">S'inscrire</a>
                     
                 <?php }?>
 
