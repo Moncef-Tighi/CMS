@@ -56,7 +56,12 @@
 
     <div class="form-group">
         <label for="status">Status</label>
-        <input type="text" class="form-control" name="status" value="<?php echo $status ?>">
+        <br>
+        <select name="status">
+            <option value="invalidé" <?php if ($status==="invalidé") echo "selected"?> >invalidé</option>
+            <option value="validé" <?php if ($status==="validé") echo "selected"?>>validé</option>
+            <option value="brouillon" <?php if ($status==="brouillon") echo "selected"?>>brouillon</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="tags">tags</label>
@@ -64,9 +69,14 @@
     </div>
     <div class="form-group">
         <label for="description">description</label>
-        <textarea type="text" class="form-control" name="description" cols="40" rows="8"><?php echo $description ?></textarea>
+        <textarea id="editeur" type="text" class="form-control" name="description" cols="40" rows="10"><?php echo $description ?></textarea>
     </div>
-
     <button type="submit" class="btn btn-primary" name="add">Envoyer</button>
-
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editeur' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 </form>

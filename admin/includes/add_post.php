@@ -67,8 +67,15 @@
     </div>
     <div class="form-group">
         <label for="description">description</label>
-        <textarea type="text" class="form-control" name="description" cols="40" rows="8"></textarea>
+        <textarea type="text" id="editeur" class="form-control" name="description" cols="40" rows="8"></textarea>
     </div>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editeur' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 
     <div class="form-group">
         <label for="image">image</label>

@@ -22,5 +22,6 @@
 
     <script defer src="js/jquery.js"></script>
     <script defer src="js/bootstrap.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 
 </head>

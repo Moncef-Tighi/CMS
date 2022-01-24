@@ -87,8 +87,15 @@ include("./includes/header.php");
 
                     <div class="form-group">
                         <label for="comment">Votre commentaire</label>
-                        <textarea name="contenu" class="form-control" rows="3"></textarea>
+                        <textarea name="contenu" id="editeur" class="form-control" rows="3"></textarea>
                     </div>
+                    <script>
+                        ClassicEditor
+                            .create( document.querySelector( '#editeur' ) )
+                            .catch( error => {
+                                console.error( error );
+                            } );
+                    </script>
                     <button type="submit" name="create_comment" class="btn btn-primary">Confirmer</button>
                 </form>
                 </div>
