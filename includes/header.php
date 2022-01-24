@@ -14,6 +14,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <link href="css/blog-home.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
 
     <?php session_start(); ?>

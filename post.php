@@ -42,7 +42,7 @@ include("./includes/header.php");
                     Par <a href="index.php"><?php echo $auteur; ?></a>
                 </p>
                 <?php 
-                if (isset($_SESSION) && $_SESSION["role"]==="admin") {
+                if (isset($_SESSION["role"]) && $_SESSION["role"]==="admin") {
                     echo("<p class='lead'><a href='admin/post.php?source=update&id=".$_GET["id"]."'>Editer</a></p> ");
                 }?>
                 <p><span class="glyphicon glyphicon-time"></span> Posté le : <?php echo $date_post; ?></p>
@@ -51,7 +51,7 @@ include("./includes/header.php");
 
 
                 <?php 
-                    if(isset($_POST["contenu"])) {
+                    if(isset($_POST["contenu"]) && $_POST["contenu"]!="") {
                         $query="INSERT INTO commentaire(post_id,auteur,email,contenu,date) 
                         VALUES (:id, :auteur, :email, :contenu, :date)";
                         $date=date("Y-m-d");
@@ -60,14 +60,16 @@ include("./includes/header.php");
                             echo("Erreur, le commentaire est invalide.");
                         } else {
                             simpleQuery($query, 
-                            [":id"=> $_GET["id"], ":auteur" => $auteur,
-                            ":email" => $email,":contenu" => $contenu, ":date" => $date ] );
+                            [":id"=> $_GET["id"], ":auteur" => $_SESSION["pseudo"],
+                            ":email" => $_SESSION["email"],":contenu" => $contenu, ":date" => $date ] );
                             echo("Votre commentaire a bien été ajouté");    
                             $query="UPDATE posts SET nombre_commentaire = nombre_commentaire + 1 
                                     WHERE post_id = :id";
                             simpleQuery($query, [":id"=> $_GET["id"]]);
                             
                         }
+                    } else {
+                        echo ("<h4 style='color:red;'>Erreur : Un commentaire ne peut pas être vide</h4>");
                     }
                 ?>
                 <br>
@@ -75,20 +77,11 @@ include("./includes/header.php");
                 <div class="well">
 
 
-
+                <?php 
+                    if (isset($_SESSION["role"])) {
+                ?>
                 <h4>Laisser un commentaire:</h4>
                 <form action="" method="post" role="form">
-
-                    <div class="form-group">
-                        <label for="Author">Auteur</label>
-                        <input type="text" name="auteur" class="form-control" name="auteur">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="Author">Email</label>
-                        <input type="email" name="email" class="form-control" name="email">
-                    </div>
-
                     <div class="form-group">
                         <label for="comment">Votre commentaire</label>
                         <textarea name="contenu" id="editeur" class="form-control" rows="3"></textarea>
@@ -102,8 +95,11 @@ include("./includes/header.php");
                     </script>
                     <button type="submit" name="create_comment" class="btn btn-primary">Confirmer</button>
                 </form>
+                <?php } else {
+                    echo ("<h4><a href=''>Connectez vous pour laisser un commentaire !</a></h4>
+                    <form  role='form'></form>");
+                }?>
                 </div>
-
                 <?php }} else {
                     header("Location: ./");
                 }?>

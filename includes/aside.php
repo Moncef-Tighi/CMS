@@ -1,5 +1,7 @@
 <aside class="col-md-4">
 
+    <?php 
+    if (!isset($_SESSION["role"]))  {?>
     <div class="well">
         <h4>Connexion : </h4>
         <div class="input-group">
@@ -20,7 +22,7 @@
 
         </div>
     </div>
-
+    <?php }?>
     <!--Recherche form -->
     <div class="well">
         <h4>Blog Search</h4>
