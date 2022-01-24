@@ -41,7 +41,7 @@ include("./includes/header.php");
                     Par <a href="index.php"><?php echo $auteur; ?></a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posté le : <?php echo $date_post; ?></p>
-                <img class="img-responsive" src="/images<?php echo $image; ?>" alt="">
+                <a href="post.php?id=<?php echo $post_id?>"><img class="img-responsive" src="/images<?php echo $image; ?>" alt=""></a>
                 <p><?php echo substr($description, 0, 250); ?></p>
                 <a class="btn btn-primary" href="post.php?id=<?php echo $post_id?>">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 

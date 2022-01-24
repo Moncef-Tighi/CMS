@@ -36,11 +36,15 @@ include("./includes/header.php");
                 ?>
 
                 <h2>
-                    <a href="#"><?php echo $titre;?></a>
+                    <?php echo $titre;?>
                 </h2>
                 <p class="lead">
                     Par <a href="index.php"><?php echo $auteur; ?></a>
                 </p>
+                <?php 
+                if (isset($_SESSION) && $_SESSION["role"]==="admin") {
+                    echo("<p class='lead'><a href='admin/post.php?source=update&id=".$_GET["id"]."'>Editer</a></p> ");
+                }?>
                 <p><span class="glyphicon glyphicon-time"></span> Posté le : <?php echo $date_post; ?></p>
                 <img class="img-responsive" src="/images<?php echo $image; ?>" alt="">
                 <p><?php echo $description; ?></p>

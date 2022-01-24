@@ -26,7 +26,7 @@
         <tr>
             <td><?php echo $post_id ?></td>
             <td><?php echo $auteur ?></td>
-            <td><?php echo $titre ?></td>
+            <td><a href="../post.php?id=<?php echo $post_id?>"><?php echo $titre ?></a></td>
             <?php 
                 $query="SELECT categorie_titre FROM categorie WHERE categorie_id = :categorie_id";
                 $titre=fetchOne($query, [':categorie_id'=> $categorie_id]);
