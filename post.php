@@ -19,7 +19,7 @@ include("./includes/header.php");
         <div class="row">
 
             <!-- Blog Entries Column -->
-            <div class="col-md-8">
+            <div class="col-md-7" id="accueil">
 
                 <h1 class="page-header">
                     Accueil

@@ -19,7 +19,7 @@ include("./includes/header.php");
         <div class="row">
 
             <!-- Blog Entries Column -->
-            <div class="col-md-8">
+            <div class="col-md-7" id="accueil">
 
                 <h1 class="page-header">
                     Accueil
@@ -38,7 +38,14 @@ include("./includes/header.php");
                     <a href="post.php?id=<?php echo $post_id?>"><?php echo $titre;?></a>
                 </h2>
                 <p class="lead">
-                    Par <a href="index.php"><?php echo $auteur; ?></a>
+                    <?php 
+                        $query="SELECT user_id FROM user WHERE pseudo= :auteur";
+                        $data=fetchOne($query, [":auteur"=>$auteur]);
+                        if (!isset($data["user_id"])) {
+                            $data["user_id"]=3;
+                        }
+                    ?>
+                    Par <a href="profile.php?id=<?php echo $data["user_id"]?>"><?php echo $auteur; ?></a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> Posté le : <?php echo $date_post; ?></p>
                 <a href="post.php?id=<?php echo $post_id?>"><img class="img-responsive" src="/images<?php echo $image; ?>" alt=""></a>
