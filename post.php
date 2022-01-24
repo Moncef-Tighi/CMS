@@ -57,7 +57,7 @@ include("./includes/header.php");
                         $date=date("Y-m-d");
                         extract($_POST);
                         if (empty($auteur) || empty($contenu)) {
-                            echo("Erreur, le commentaire est invalide.");
+                            echo("<h4 style='color:red;'>Erreur : Un commentaire ne peut pas être vide</h4>");
                         } else {
                             simpleQuery($query, 
                             [":id"=> $_GET["id"], ":auteur" => $_SESSION["pseudo"],
@@ -68,8 +68,6 @@ include("./includes/header.php");
                             simpleQuery($query, [":id"=> $_GET["id"]]);
                             
                         }
-                    } else {
-                        echo ("<h4 style='color:red;'>Erreur : Un commentaire ne peut pas être vide</h4>");
                     }
                 ?>
                 <br>
@@ -96,7 +94,7 @@ include("./includes/header.php");
                     <button type="submit" name="create_comment" class="btn btn-primary">Confirmer</button>
                 </form>
                 <?php } else {
-                    echo ("<h4><a href=''>Connectez vous pour laisser un commentaire !</a></h4>
+                    echo ("<h4><a href='connexion.php'>Connectez vous pour laisser un commentaire !</a></h4>
                     <form  role='form'></form>");
                 }?>
                 </div>

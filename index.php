@@ -28,8 +28,15 @@ include("./includes/header.php");
 
                 <!-- Les blog posts -->
                 <?php
-                    $query="SELECT * FROM posts WHERE status!='invalide'";
-                    $data = fetchAll($query); 
+                    $query="SELECT * FROM posts WHERE status!='invalide' LIMIT :page,10 ";
+                    if (!isset($_GET["page"])) {
+                        $page=0;
+                        $_GET["page"]=1;
+                    } else {
+                        $page=intval(($_GET["page"]-1))*10;
+                    }
+
+                    $data = fetchAll($query, [":page"=> $page]);
                     foreach($data as $row) {
                          extract($row);
                         ?>
@@ -56,11 +63,14 @@ include("./includes/header.php");
                 <?php } //Fin de la loop d'affichage ?>
                 <!-- Pager -->
                 <ul class="pager">
+                <?php if (isset($_GET["page"]) && $_GET["page"]>1) {?>
+
                     <li class="previous">
-                        <a href="#">&larr; Précédent</a>
+                        <a href="index.php?page=<?php echo(intval($_GET["page"])-1);?>">&larr; Précédent</a>
                     </li>
+                    <?php }?>
                     <li class="next">
-                        <a href="#">Suivant &rarr;</a>
+                        <a href="index.php?page=<?php echo(intval($_GET["page"])+1); ?>">Suivant &rarr;</a>
                     </li>
                 </ul>
 
