@@ -39,7 +39,14 @@ include("./includes/header.php");
                     <?php echo $titre;?>
                 </h2>
                 <p class="lead">
-                    Par <a href="index.php"><?php echo $auteur; ?></a>
+                    <?php 
+                            $query="SELECT user_id FROM user WHERE pseudo= :auteur";
+                            $data=fetchOne($query, [":auteur"=>$auteur]);
+                            if (!isset($data["user_id"])) {
+                                $data["user_id"]=3;
+                            }
+                        ?>
+                        Par <a href="profile.php?id=<?php echo $data["user_id"]?>"><?php echo $auteur; ?></a>
                 </p>
                 <?php 
                 if (isset($_SESSION["role"]) && $_SESSION["role"]==="admin") {

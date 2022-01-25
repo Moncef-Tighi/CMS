@@ -5,22 +5,25 @@
 ?>
 
 <body>
+  <div id="page-wrapper" style="width: 80%;
+    margin: 0 auto;">
+  <div id="wrapper">
+<?php
+        $query="SELECT * FROM user WHERE user_id= :id";
+        $data=fetchOne($query, [":id"=>$_GET["id"]]);
+    ?>
 
+<h1 class="page-header" style="text-align: center;">
+  <?php echo $data["nom"]?> <?php echo $data["prenom"] ?><small>  Profile</small>
+</h1>
 
-
-    <div id="wrapper">
 
         <!-- Navigation -->
         <?php include("./includes/navigation.php"); ?>
 
             <div class="container">
 
-    <div class="row">
-    <?php
-        $query="SELECT * FROM user WHERE user_id= :id";
-        $data=fetchOne($query, [":id"=>$_GET["id"]]);
-    ?>
-                        
+    <div class="row">                        
     <div class="container">
     <div class="main-body">
     
@@ -127,7 +130,7 @@
     </div>
 
 
-
+    </div>
 
 </body>
 
