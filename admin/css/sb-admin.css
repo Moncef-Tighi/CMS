@@ -9,6 +9,10 @@ body {
     background-color: #222;
 }
 
+.ck-editor__editable_inline {
+    height: 250px;
+}
+
 @media(min-width:768px) {
     body {
         margin-top: 50px;
