@@ -28,12 +28,12 @@ include("./includes/header.php");
 
                 <!-- Les blog posts -->
                 <?php
-                    $query="SELECT * FROM posts WHERE status!='invalide' LIMIT :page,10 ";
+                    $query="SELECT * FROM posts WHERE status!='invalide' LIMIT :page,5 ";
                     if (!isset($_GET["page"])) {
                         $page=0;
                         $_GET["page"]=1;
                     } else {
-                        $page=intval(($_GET["page"]-1))*10;
+                        $page=intval(($_GET["page"]-1))*5;
                     }
 
                     $data = fetchAll($query, [":page"=> $page]);

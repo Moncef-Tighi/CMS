@@ -12,7 +12,7 @@
             $query="UPDATE user SET
             pseudo =  :pseudo , nom = :nom , prenom= :prenom ,
             password = :password ,
-            email = :email ,role = :role, salt=''
+            email = :email ,role = :role
             WHERE user_id= :id ";
             
             extract($_POST);

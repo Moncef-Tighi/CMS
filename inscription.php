@@ -8,7 +8,7 @@ if (isset($_POST["login"])) {
     $password=crypt($password,$pseudo);
     $query="INSERT INTO 
     user(pseudo,nom,prenom,password,email,image,role,salt) 
-    VALUES(:pseudo,:nom,:prenom,:password,:email,'default.jpg','admin','')";
+    VALUES(:pseudo,:nom,:prenom,:password,:email,'default.jpg','admin')";
     simpleQuery($query, [":pseudo"=>$pseudo,":nom"=>$nom,":prenom"=>$prenom,":password"=>$password,":email"=>$email,]);
     echo("<h2 style='color:green'>Votre compte a bien été créé, vous pouvez désormais vous connecter</h2>");
 }

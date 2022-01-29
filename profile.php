@@ -33,7 +33,7 @@
               <div class="card">
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="../images/<?php echo $data['image'];?>" alt="Admin" class="rounded-circle" width="150">
+                    <img src="<?php echo $data['image'];?>" alt="Admin" class="rounded-circle" width="150">
                     <div class="mt-3">
                       <h4><?php echo $data["pseudo"];?></h4>
                       <p class="text-secondary mb-1"><?php echo $data["nom"];?> <?php echo $data["prenom"];?></p>

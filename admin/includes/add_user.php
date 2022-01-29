@@ -8,9 +8,9 @@
         $password=crypt($password,$pseudo);
 
         $query="INSERT INTO user(
-            pseudo,nom,prenom,password,image,email,role,salt
+            pseudo,nom,prenom,password,image,email,role
         ) VALUES(
-            :pseudo,:nom,:prenom,:password,:image,:email,:role,''
+            :pseudo,:nom,:prenom,:password,:image,:email,:role
         )";
         simpleQuery($query, [
             ":pseudo"=>$pseudo,

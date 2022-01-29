@@ -53,7 +53,7 @@ include("./includes/header.php");
                     echo("<p class='lead'><a href='admin/post.php?source=update&id=".$_GET["id"]."'>Editer</a></p> ");
                 }?>
                 <p><span class="glyphicon glyphicon-time"></span> Posté le : <?php echo $date_post; ?></p>
-                <img class="img-responsive" src="/images<?php echo $image; ?>" alt="">
+                <img class="img-responsive" src="<?php echo $image; ?>" alt="">
                 <p><?php echo $description; ?></p>
 
 
@@ -134,7 +134,7 @@ include("./includes/header.php");
                         }
                         
                         ?>
-                        <img class="media-object" src="/images/<?php echo $data["image"]?>" alt="" width=50>
+                        <img class="media-object" src="<?php echo $data["image"]?>" alt="" width=50>
                     </a>
                     <div class="media-body">
                         <h4 class="media-heading"><?php echo $auteur ?>

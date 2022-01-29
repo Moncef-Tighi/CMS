@@ -20,11 +20,11 @@
                 <h1>Se connecter</h1><br>
                     <form role="form" action="./includes/login.php" method="post" id="login" autocomplete="off">
                         <div class="form-group">
-                            <label for="pseudo">Pseudo</label>
+                            <label for="pseudo">Pseudo (admin)</label>
                             <input type="text" name="pseudo" id="pseudo" class="form-control" placeholder="Entrez un pseudo">
                         </div>
                          <div class="form-group">
-                            <label for="password" >Password</label>
+                            <label for="password" >Password (root)</label>
                             <input type="password" name="password" id="key" class="form-control" placeholder="mot de passe" >
                         </div>
                 

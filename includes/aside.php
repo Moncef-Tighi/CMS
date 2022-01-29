@@ -7,11 +7,11 @@
         <div class="input-group">
             <form action="includes/login.php" method="post">
                 <div class="form-group">
-                    <label for="pseudo">Pseudo : </label>
+                    <label for="pseudo">Pseudo : (admin)</label>
                     <input type="text" name="pseudo" class="form-control" id="pseudo" placeholder="Veuillez entrer votre pseudo">                    
                 </div>
                 <div class="input-group">
-                    <label for="password">Password : </label>
+                    <label for="password">Password : (root)</label>
                     <input type="password" name="password" class="form-control" id="password" placeholder="Veuillez entrer votre mot de passe">
                 </div>
                 <div class="input-group">
