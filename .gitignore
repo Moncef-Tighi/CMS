@@ -2,3 +2,5 @@ bootstrap*
 *jquery*
 admin/js/plugins
 admin/font*
+*env
+*database*
